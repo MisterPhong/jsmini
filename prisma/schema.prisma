@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model department {
+  id       Int        @id
+  depname  String     @db.VarChar(200)
+  employee employee[]
+}
+
+model employee {
+  id         Int        @id
+  firstname  String     @db.VarChar(100)
+  lastname   String     @db.VarChar(100)
+  gender     String     @db.VarChar(50)
+  address    String     @db.VarChar(200)
+  salary     Int
+  startdate  DateTime   @db.Date
+  dep_id     Int
+  pos_id     Int
+  department department @relation(fields: [dep_id], references: [id], onUpdate: Restrict, map: "fkdep")
+  position   position   @relation(fields: [pos_id], references: [id], onUpdate: Restrict, map: "fkpos")
+
+  @@index([dep_id], map: "fkdep")
+  @@index([pos_id], map: "fkpos")
+}
+
+model position {
+  id       Int        @id
+  posname  String     @db.VarChar(100)
+  employee employee[]
+}
+
+// /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+// model  {
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // ชื่อ String? @map("ชื่อ") @db.VarChar(100)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // นามสกุล String? @map("นามสกุล") @db.VarChar(100)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // จังหวัด String? @map("จังหวัด") @db.VarChar(200)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // ตำแหน่ง String? @map("ตำแหน่ง") @db.VarChar(100)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // เงินเดือน Int? @map("เงินเดือน")
+// @@map("ข้อ2")
+// @@ignore
+// }
+// /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+// model  {
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // ชื่อ String? @map("ชื่อ") @db.VarChar(100)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // นามสกุล String? @map("นามสกุล") @db.VarChar(100)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // จังหวัด String? @map("จังหวัด") @db.VarChar(200)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // ตำแหน่ง String? @map("ตำแหน่ง") @db.VarChar(100)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // เพศ String? @map("เพศ") @db.VarChar(50)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // เงินเดือน Int? @map("เงินเดือน")
+// @@map("ข้อ3")
+// @@ignore
+// }
+// /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+// model  {
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // ชื่อ String? @map("ชื่อ") @db.VarChar(100)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // นามสกุล String? @map("นามสกุล") @db.VarChar(100)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // จังหวัด String? @map("จังหวัด") @db.VarChar(200)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // เพศ String? @map("เพศ") @db.VarChar(50)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // ตำแหน่ง String? @map("ตำแหน่ง") @db.VarChar(100)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // แผนก String? @map("แผนก") @db.VarChar(200)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // เงินเดือน Int? @map("เงินเดือน")
+// @@map("ข้อ4")
+// @@ignore
+// }
+// /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+// model  {
+// department String? @db.VarChar(200)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // เงินเดือนสูงสุด Int? @map("เงินเดือนสูงสุด")
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // เงินเดือนน้อยสุด Int? @map("เงินเดือนน้อยสุด")
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // เงินเดือนเฉลี่ย Decimal? @map("เงินเดือนเฉลี่ย") @db.Decimal(14, 4)
+// @@map("ข้อ5")
+// @@ignore
+// }
+// /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+// model  {
+// firstname String? @db.VarChar(100)
+// lastname String? @db.VarChar(100)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // วันที่เริ่มงาน DateTime? @map("วันที่เริ่มงาน") @db.Date
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // ตำแหน่ง String? @map("ตำแหน่ง") @db.VarChar(100)
+// /// This field was commented out because of an invalid name. Please provide a valid one that matches [a-zA-Z][a-zA-Z0-9_]*
+// // อายุงาน (ปี) BigInt? @map("อายุงาน (ปี)")
+// @@map("ข้อ6")
+// @@ignore
+// }

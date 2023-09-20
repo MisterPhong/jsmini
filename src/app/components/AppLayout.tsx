@@ -15,7 +15,7 @@ import {
   Group,
   Button,
 } from "@mantine/core";
-import { IconCode, IconHome2, IconLogout } from "@tabler/icons-react";
+import { IconCode, IconGlobeFilled, IconHome2, IconLogout, IconUsb } from "@tabler/icons-react";
 import Link from "next/link";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -54,6 +54,21 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               icon={<IconCode size="1rem" stroke={1.5} />}
             />
           </Link>
+
+          <Link href={"about"} style={{ textDecoration: "none" }}>
+            <NavLink
+              label="HelloGuy"
+              icon={<IconUsb size="1rem" stroke={1.5} />}
+            />
+          </Link>
+
+          <Link href={"bitwait"} style={{ textDecoration: "none" }}>
+            <NavLink
+              label="bitwait"
+              icon={<IconGlobeFilled size="1rem" stroke={1.5} />}
+            />
+          </Link>
+
         </Navbar>
       }
       footer={
