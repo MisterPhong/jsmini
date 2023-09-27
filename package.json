@@ -22,6 +22,7 @@
     "@mantine/prism": "^6.0.20",
     "@mantine/spotlight": "^6.0.20",
     "@mantine/tiptap": "^6.0.20",
+    "@prisma/client": "^4.15.0",
     "@tabler/icons-react": "^2.34.0",
     "@tiptap/extension-link": "^2.1.8",
     "@tiptap/react": "^2.1.8",
@@ -39,5 +40,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "prisma": "^5.3.1"
   }
 }

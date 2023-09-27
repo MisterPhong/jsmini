@@ -15,7 +15,12 @@ import {
   Group,
   Button,
 } from "@mantine/core";
-import { IconCode, IconHome2, IconLogout } from "@tabler/icons-react";
+import {
+  IconCode,
+  IconHome2,
+  IconLogout,
+  IconUserOff,
+} from "@tabler/icons-react";
 import Link from "next/link";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -52,6 +57,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <NavLink
               label="Public API"
               icon={<IconCode size="1rem" stroke={1.5} />}
+            />
+          </Link>
+          <Link href={"about"} style={{ textDecoration: "none" }}>
+            <NavLink
+              label="เกี่ยวกับเรา"
+              icon={<IconUserOff size="1rem" stroke={1.5} />}
             />
           </Link>
         </Navbar>
