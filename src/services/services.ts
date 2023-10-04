@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { employee } from "@prisma/client";
+import { Prisma, department, employee, position } from "@prisma/client";
 
 export async function findAllEmployee(): Promise<employee[]> {
     return await prisma.employee.findMany({
@@ -21,5 +21,40 @@ export async function findAll() {
 export async function removeEmployee(id: number) {
     return await prisma.employee.delete({
         where : {id: id}
+    })
+}
+
+// เพิ่มข้อมูลใหม่ในตาราง employee
+export async function createEmployee(data: Prisma.employeeCreateManyInput) {
+    return await prisma.employee.create({
+        data: {
+            firstname : data.firstname,
+            lastname : data.lastname,
+            gender : data.gender,
+            address : data.address,
+            salary : data.salary,
+            startdate : data.startdate,
+            dep_id : data.dep_id,
+            pos_id : data.pos_id,
+        }
+    })
+}
+// แก้ไขข้อมูลในตาราง employee
+export async function  updateEmployee(id: number, data: Prisma.employeeUpdateInput) {
+    return await prisma.employee.update({
+        where: {id: id},
+        data: data
+    })
+}
+// อ่านข้อมูลทั้งหมดใน table department
+export async function findDep(): Promise<department[]> {
+    return await prisma.department.findMany({
+        orderBy: {id: "asc"}
+    })
+}
+// อ่านข้อมูลทั้งหมดใน table position
+export async function findPos(): Promise<position[]> {
+    return await prisma.position.findMany({
+        orderBy: {id: "asc"}
     })
 }

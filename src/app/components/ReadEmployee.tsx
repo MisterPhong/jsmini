@@ -1,5 +1,5 @@
-import { ActionIcon, Table, Text } from "@mantine/core";
-import { IconTrashX } from "@tabler/icons-react";
+import { ActionIcon, Button, Divider, Group, Table, Text } from "@mantine/core";
+import { IconEdit, IconTrashX } from "@tabler/icons-react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ModalsProvider, modals } from "@mantine/modals";
@@ -45,13 +45,22 @@ export default function ReadEmployee() {
       <td>{row.depname}</td>
       <td>{row.posname}</td>
       <td>
-        <ActionIcon
-          color="red"
-          variant="filled"
-          onClick={() => openDeleteModal(row.id)}
-        >
-          <IconTrashX size="1.125rem" />
-        </ActionIcon>
+        <Group>
+          <ActionIcon
+            color="blue"
+            variant="filled"
+            onClick={() => openDeleteModal(row.id)}
+          >
+            <IconEdit size="1.125rem" />
+          </ActionIcon>
+          <ActionIcon
+            color="red"
+            variant="filled"
+            onClick={() => openDeleteModal(row.id)}
+          >
+            <IconTrashX size="1.125rem" />
+          </ActionIcon>
+        </Group>
       </td>
     </tr>
   ));
@@ -59,6 +68,13 @@ export default function ReadEmployee() {
   return (
     <>
       <ModalsProvider labels={{ confirm: "Submit", cancel: "Cancel" }}>
+        <Group position="right">
+          <Button variant="outline" compact>
+            Create
+          </Button>
+        </Group>
+        <Divider my={15} />
+
         <Table>
           <thead>
             <tr>

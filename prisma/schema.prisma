@@ -14,7 +14,7 @@ model department {
 }
 
 model employee {
-  id         Int        @id
+  id         Int        @id @default(autoincrement())
   firstname  String     @db.VarChar(100)
   lastname   String     @db.VarChar(100)
   gender     String     @db.VarChar(50)
