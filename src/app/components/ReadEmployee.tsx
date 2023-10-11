@@ -4,6 +4,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ModalsProvider, modals } from "@mantine/modals";
 import { useRouter } from "next/navigation";
+import FormCreate from "./FormCreate";
+import FormEditTest from "./FormEditTest";
 
 export default function ReadEmployee() {
   const router = useRouter();
@@ -49,7 +51,16 @@ export default function ReadEmployee() {
           <ActionIcon
             color="blue"
             variant="filled"
-            onClick={() => openDeleteModal(row.id)}
+            onClick={() => {
+              modals.open({
+                title: "แก้ไขข้อมูลพนักงงาน",
+                children: (
+                  <>
+                    <FormEditTest id={row.id} />
+                  </>
+                ),
+              });
+            }}
           >
             <IconEdit size="1.125rem" />
           </ActionIcon>
@@ -69,7 +80,16 @@ export default function ReadEmployee() {
     <>
       <ModalsProvider labels={{ confirm: "Submit", cancel: "Cancel" }}>
         <Group position="right">
-          <Button variant="outline" compact>
+          <Button
+            variant="outline"
+            compact
+            onClick={() => {
+              modals.open({
+                title: "เพิ่มข้อมูลพนักงาน",
+                children: <FormCreate />,
+              });
+            }}
+          >
             Create
           </Button>
         </Group>

@@ -23,7 +23,6 @@ export async function removeEmployee(id: number) {
         where : {id: id}
     })
 }
-
 // เพิ่มข้อมูลใหม่ในตาราง employee
 export async function createEmployee(data: Prisma.employeeCreateManyInput) {
     return await prisma.employee.create({
@@ -39,6 +38,12 @@ export async function createEmployee(data: Prisma.employeeCreateManyInput) {
         }
     })
 }
+// อ่านข้อมูล 1 แถว by id ใน table employee
+export async function findOneEmployee(id: number): Promise<employee | null> {
+    return await prisma.employee.findUnique({
+        where: {id: id},
+    })
+}
 // แก้ไขข้อมูลในตาราง employee
 export async function  updateEmployee(id: number, data: Prisma.employeeUpdateInput) {
     return await prisma.employee.update({
@@ -46,12 +51,14 @@ export async function  updateEmployee(id: number, data: Prisma.employeeUpdateInp
         data: data
     })
 }
+
 // อ่านข้อมูลทั้งหมดใน table department
 export async function findDep(): Promise<department[]> {
     return await prisma.department.findMany({
         orderBy: {id: "asc"}
     })
 }
+
 // อ่านข้อมูลทั้งหมดใน table position
 export async function findPos(): Promise<position[]> {
     return await prisma.position.findMany({
