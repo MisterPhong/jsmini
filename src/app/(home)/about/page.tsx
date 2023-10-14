@@ -9,7 +9,7 @@ export default function Aboutme({}: Props) {
   return (
     <>
     <Card>
-    <h1>HElloJS</h1>
+    <h1>รายการเหรียญวันนี้</h1>
     <GetPublicAPI/>
     </Card>
     </>
