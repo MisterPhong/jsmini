@@ -15,7 +15,16 @@ import {
   Group,
   Button,
 } from "@mantine/core";
+<<<<<<< HEAD
 import { IconCode, IconGlobeFilled, IconHome2, IconLogout, IconUsb } from "@tabler/icons-react";
+=======
+import {
+  IconCode,
+  IconHome2,
+  IconLogout,
+  IconUserOff,
+} from "@tabler/icons-react";
+>>>>>>> 75e05848ae9fbb3f523278fd074936187d35888b
 import Link from "next/link";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -54,11 +63,18 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               icon={<IconCode size="1rem" stroke={1.5} />}
             />
           </Link>
+<<<<<<< HEAD
 
           <Link href={"about"} style={{ textDecoration: "none" }}>
             <NavLink
               label="ราคาเหรียญ"
               icon={<IconUsb size="1rem" stroke={1.5} />}
+=======
+          <Link href={"about"} style={{ textDecoration: "none" }}>
+            <NavLink
+              label="เกี่ยวกับเรา"
+              icon={<IconUserOff size="1rem" stroke={1.5} />}
+>>>>>>> 75e05848ae9fbb3f523278fd074936187d35888b
             />
           </Link>
         </Navbar>

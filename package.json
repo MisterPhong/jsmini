@@ -22,7 +22,11 @@
     "@mantine/prism": "^6.0.20",
     "@mantine/spotlight": "^6.0.20",
     "@mantine/tiptap": "^6.0.20",
+<<<<<<< HEAD
     "@prisma/client": "^5.3.1",
+=======
+    "@prisma/client": "^4.15.0",
+>>>>>>> 75e05848ae9fbb3f523278fd074936187d35888b
     "@tabler/icons-react": "^2.34.0",
     "@tiptap/extension-link": "^2.1.8",
     "@tiptap/react": "^2.1.8",

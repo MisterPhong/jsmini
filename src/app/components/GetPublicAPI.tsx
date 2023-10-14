@@ -2,9 +2,13 @@ import { Table } from "@mantine/core";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
+<<<<<<< HEAD
 type Props = {};
 
 export default function GetPublicAPI({ }: Props) {
+=======
+export default function GetPublicAPI() {
+>>>>>>> 75e05848ae9fbb3f523278fd074936187d35888b
   const [data, setData] = useState([]);
   const getData = async () => {
     const res = await axios.get(
@@ -12,9 +16,17 @@ export default function GetPublicAPI({ }: Props) {
     );
     setData(res.data);
   };
+<<<<<<< HEAD
   useEffect(() => {
     getData();
   }, []);
+=======
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+>>>>>>> 75e05848ae9fbb3f523278fd074936187d35888b
   console.log(data);
   const rows = data.map((row: any) => (
     <tr key={row.price}>
@@ -23,7 +35,10 @@ export default function GetPublicAPI({ }: Props) {
       <td>{row.exchange}</td>
     </tr>
   ));
+<<<<<<< HEAD
 
+=======
+>>>>>>> 75e05848ae9fbb3f523278fd074936187d35888b
   return (
     <>
       <Table>

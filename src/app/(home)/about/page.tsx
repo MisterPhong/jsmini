@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client"
 import GetPublicAPI from '@/app/components/GetPublicAPI'
 import { Card } from '@mantine/core'
@@ -15,3 +16,20 @@ export default function Aboutme({}: Props) {
     </>
   )
 }
+=======
+"use client";
+import GetPublicAPI from "@/app/components/GetPublicAPI";
+import { Card } from "@mantine/core";
+import React from "react";
+
+export default function AboutPage() {
+  return (
+    <>
+      <Card>
+        <h1>About Page</h1>
+        <GetPublicAPI />
+      </Card>
+    </>
+  );
+}
+>>>>>>> 75e05848ae9fbb3f523278fd074936187d35888b

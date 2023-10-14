@@ -9,7 +9,11 @@ export default function Home() {
     <>
       <Card>
         <ShowTitle title={titlePage} />
+<<<<<<< HEAD
         <ReadEmployee/>
+=======
+        <ReadEmployee />
+>>>>>>> 75e05848ae9fbb3f523278fd074936187d35888b
       </Card>
     </>
   );
