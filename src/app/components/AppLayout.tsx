@@ -50,25 +50,17 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
           <Link href={"testapi"} style={{ textDecoration: "none" }}>
             <NavLink
-              label="Public API"
+              label="ฟังหมอลำสักหน่อย"
               icon={<IconCode size="1rem" stroke={1.5} />}
             />
           </Link>
 
           <Link href={"about"} style={{ textDecoration: "none" }}>
             <NavLink
-              label="HelloGuy"
+              label="ราคาเหรียญ"
               icon={<IconUsb size="1rem" stroke={1.5} />}
             />
           </Link>
-
-          <Link href={"bitwait"} style={{ textDecoration: "none" }}>
-            <NavLink
-              label="bitwait"
-              icon={<IconGlobeFilled size="1rem" stroke={1.5} />}
-            />
-          </Link>
-
         </Navbar>
       }
       footer={
