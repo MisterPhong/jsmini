@@ -8,12 +8,10 @@ datasource db {
 }
 
 model department {
-  id       Int        @id
-  depname  String     @db.VarChar(200)
-  employee employee[]
+  id      Int    @id
+  depname String @db.VarChar(200)
 }
 
-<<<<<<< HEAD
 model drinkorder {
   id          Int    @id
   Menuname    String @db.VarChar(100)
@@ -21,27 +19,22 @@ model drinkorder {
   Price       Int
 }
 
-=======
->>>>>>> 75e05848ae9fbb3f523278fd074936187d35888b
 model employee {
-  id         Int        @id @default(autoincrement())
-  firstname  String     @db.VarChar(100)
-  lastname   String     @db.VarChar(100)
-  gender     String     @db.VarChar(50)
-  address    String     @db.VarChar(200)
-  salary     Int
-  startdate  DateTime   @db.Date
-  dep_id     Int
-  pos_id     Int
-  department department @relation(fields: [dep_id], references: [id], onUpdate: Restrict, map: "fkdep")
-  position   position   @relation(fields: [pos_id], references: [id], onUpdate: Restrict, map: "fkpos")
+  id        Int      @id
+  firstname String   @db.VarChar(100)
+  lastname  String   @db.VarChar(100)
+  gender    String   @db.VarChar(250)
+  address   String   @db.VarChar(200)
+  salary    Int
+  startdate DateTime @db.Date
+  dep_id    Int
+  pos_id    Int
 
-  @@index([dep_id], map: "fkdep")
-  @@index([pos_id], map: "fkpos")
+  @@index([dep_id], map: "dep_id")
+  @@index([pos_id], map: "pos_id")
 }
 
 model position {
-  id       Int        @id
-  posname  String     @db.VarChar(100)
-  employee employee[]
+  id      Int    @id
+  posname String @db.VarChar(100)
 }
